@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>{{ title }}</title>
+  {%- for script in scripts %}
+    {%- if script contains "http://" or script contains "https://" %}
+      <script src="{{ script }}"></script>
+    {%- else %}
+      <script>{%- render script -%}</script>
+    {%- endif %}
+  {%- endfor %}
+</head>
+<body>
+
+  <main>{{ content }}</main>
+
+</body>
+</html>
